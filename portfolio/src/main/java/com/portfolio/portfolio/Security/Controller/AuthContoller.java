@@ -1,5 +1,6 @@
 package com.portfolio.portfolio.Security.Controller;
 
+import com.portfolio.portfolio.Security.Dto.JwtDto;
 import com.portfolio.portfolio.Security.Entity.Rol;
 import com.portfolio.portfolio.Security.Entity.Usuario;
 import com.portfolio.portfolio.Security.Enums.RolNombre;
@@ -82,7 +83,7 @@ public class AuthContoller {
         
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         
-        JwtDto JwtDto = new JwtDto(jwt, UserDetails.getUsername(), UserDetails.getAuthorities);
+        JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(),userDetails.getAuthorities());
         
         return new ResponseEntity(jwtDto,HttpStatus.OK);
     }
