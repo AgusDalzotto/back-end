@@ -1,6 +1,6 @@
-package com.portfolio.portfolio.security.Entity;
+package com.portfolio.portfolio.Security.Entity;
 
-import com.portfolio.portfolio.security.Enums.RolNombre;
+import com.portfolio.portfolio.Security.Enums.RolNombre;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

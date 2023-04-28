@@ -1,7 +1,7 @@
-package com.portfolio.security.Service;
+package com.portfolio.portfolio.Security.Service;
 
-import com.portfolio.portfolio.security.Entity.Usuario;
-import com.portfolio.portfolio.security.Entity.UsuarioPrincipal;
+import com.portfolio.portfolio.Security.Entity.Usuario;
+import com.portfolio.portfolio.Security.Entity.UsuarioPrincipal;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

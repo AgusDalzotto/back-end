@@ -1,6 +1,6 @@
-package com.portfolio.security.Repository;
+package com.portfolio.portfolio.Security.Repository;
 
-import com.portfolio.portfolio.security.Entity.Usuario;
+import com.portfolio.portfolio.Security.Entity.Usuario;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

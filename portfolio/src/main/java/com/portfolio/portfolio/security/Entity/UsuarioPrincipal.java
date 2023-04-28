@@ -1,4 +1,4 @@
-package com.portfolio.portfolio.security.Entity;
+package com.portfolio.portfolio.Security.Entity;
 
 import java.util.Collection;
 import java.util.List;

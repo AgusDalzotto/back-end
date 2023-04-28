@@ -1,5 +1,4 @@
-
-package com.portfolio.portfolio.security.Entity;
+package com.portfolio.portfolio.Security.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

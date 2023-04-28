@@ -1,6 +1,6 @@
-package com.portfolio.security.jwt;
+package com.portfolio.portfolio.Security.jwt;
 
-import com.portfolio.security.Service.UserDetailsImp;
+import com.portfolio.portfolio.Security.Service.UserDetailsImp;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

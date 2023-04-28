@@ -1,4 +1,4 @@
-package com.portfolio.security.jwt;
+package com.portfolio.portfolio.Security.jwt;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
