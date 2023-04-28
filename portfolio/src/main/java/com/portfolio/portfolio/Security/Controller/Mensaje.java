@@ -1,15 +1,14 @@
 package com.portfolio.portfolio.Security.Controller;
 
-
-public class Mnesaje {
+public class Mensaje {
     private String mensaje;
     
     //constructores
 
-    public Mnesaje() {
+    public Mensaje() {
     }
 
-    public Mnesaje(String mensaje) {
+    public Mensaje(String mensaje) {
         this.mensaje = mensaje;
     }
     
@@ -27,3 +26,4 @@ public class Mnesaje {
     
     //getters y setters
 }
+
