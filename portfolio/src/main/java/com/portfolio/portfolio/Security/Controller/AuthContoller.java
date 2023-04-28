@@ -1,6 +1,8 @@
 package com.portfolio.portfolio.Security.Controller;
 
 import com.portfolio.portfolio.Security.Dto.JwtDto;
+import com.portfolio.portfolio.Security.Dto.LoginUsuario;
+import com.portfolio.portfolio.Security.Dto.NuevoUsuario;
 import com.portfolio.portfolio.Security.Entity.Rol;
 import com.portfolio.portfolio.Security.Entity.Usuario;
 import com.portfolio.portfolio.Security.Enums.RolNombre;
@@ -46,10 +48,10 @@ public class AuthContoller {
         if (bindingResult.hasErrors()){
             return new ResponseEntity(new Mensaje("Campos mal colocados o email invalido"),HttpStatus.BAD_REQUEST);
         }
-        if (usuarioService.existByNombreUsuario(nombreUsuario.getNombreUsuario())){
+        if (usuarioService.existByNombreUsuario(nuevoUsuario.getNombreUsuario())){
             return new ResponseEntity(new Mensaje("El nombre de usuario ya existe"),HttpStatus.BAD_REQUEST);
         }
-        if (usuarioService.existByEmail(nombreUsuario.getEmail())){
+        if (usuarioService.existByEmail(nuevoUsuario.getEmail())){
             return new ResponseEntity(new Mensaje("El email ya existe"),HttpStatus.BAD_REQUEST);
         }
         
