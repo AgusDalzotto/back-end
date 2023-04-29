@@ -20,9 +20,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity WebSecurity {
+public class MainSecurity {
     @Autowired
-    UserDetailsImp userDetailsServiceImp;
+    UserDetailsImp userDetailsServiceImpl;
+
     @Autowired
     JwtEntryPoint jwtEntryPoint;
 
@@ -36,7 +37,6 @@ public class MainSecurity WebSecurity {
         return new BCryptPasswordEncoder();
     }
 
-    
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
@@ -45,7 +45,7 @@ public class MainSecurity WebSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequest().antMatchers("/**").permitAll().anyRequest().authenticated();
+        http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests().requestMatchers("/**").permitAll().anyRequest().authenticated();
 
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
