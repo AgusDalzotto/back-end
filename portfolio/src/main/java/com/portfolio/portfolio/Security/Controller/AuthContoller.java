@@ -64,20 +64,18 @@ public class AuthContoller {
         if (nuevoUsuario.getRoles().contains("admin")) {
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         }
-
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
         return new ResponseEntity(new Mensaje("El usuario ha sido guardado"), HttpStatus.CREATED);
-
     }
 
-    @PostMapping("/loggin")
+    @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Los campos estan mal puestos"), HttpStatus.BAD_REQUEST);
         }
-
+        
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -91,3 +89,5 @@ public class AuthContoller {
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
 }
+
+//done
