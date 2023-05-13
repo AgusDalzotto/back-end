@@ -24,7 +24,6 @@ public class UsuarioPrincipal implements UserDetails {
         this.authorities = authorities;
     }
 
-    //constructor
     public static UsuarioPrincipal build(Usuario usuario) {
         List<GrantedAuthority> authorities = usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
         return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail(), usuario.getPassword(), authorities);
@@ -73,6 +72,6 @@ public class UsuarioPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-    //abstract methods
 }
+
+//done
