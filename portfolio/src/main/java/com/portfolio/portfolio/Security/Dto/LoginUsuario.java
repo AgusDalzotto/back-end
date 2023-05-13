@@ -2,15 +2,14 @@ package com.portfolio.portfolio.Security.Dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-
 public class LoginUsuario {
+
     @NotBlank
     private String nombreUsuario;
     @NotBlank
     private String password;
-    
-    //getters y setters
 
+    //getters y setters
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -26,6 +25,6 @@ public class LoginUsuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    //getters y setters
 }
+
+//done
