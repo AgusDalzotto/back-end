@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,6 +48,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("La experiencia ha sido agregada"), HttpStatus.OK);
     }
     
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp){
         //validacion de existencia del id
         if (!sExperiencia.existsById(id))
@@ -60,6 +62,28 @@ public class CExperiencia {
         
         Experiencia experiencia = sExperiencia.getOne(id).get();
         experiencia.setNombreE(dtoexp.getNombreE());
+        experiencia.setDescripcionE(dtoexp.getDescripcionE());
         
+        sExperiencia.save(experiencia);
+        
+        return new ResponseEntity(new Mensaje ("La experiencia ha sido actualizada"), HttpStatus.OK);
+    }
+    
+    public ResponseEntity<?> delete(@PathVariable("id") int id){
+        //validacion de existencia del id
+        if (!sExperiencia.existsById(id))
+            return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
+        
+        sExperiencia.delete(id);
+        
+        return new ResponseEntity(new Mensaje("La experiencia ha sido eliminada"), HttpStatus.OK);
+    }
+    
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
+        if(!sExperiencia.existsById(id))
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        Experiencia experiencia = sExperiencia.getOne(id).get();
+        return new ResponseEntity(experiencia, HttpStatus.OK);
     }
 }
