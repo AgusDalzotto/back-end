@@ -33,7 +33,14 @@ public class CExperiencia {
     }
     
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){
-        if (StringUtils.isBlank(dtoexp.getNombreE()));
-        return new ResponseEntity(new Mensaje ("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        if (StringUtils.isBlank(dtoexp.getNombreE()))
+            return new ResponseEntity(new Mensaje ("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        if (sExperiencia.existsByNombreE(dtoexp.getNombreE()))
+            return new ResponseEntity(new Mensaje ("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        
+        Experiencia experiencia = new  Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
+        sExperiencia.save(experiencia);
+        
+        return new ResponseEntity(new Mensaje("La experiencia ha sido agregada"), HttpStatus.OK);
     }
 }
