@@ -1,12 +1,14 @@
 package com.portfolio.portfolio.Controler;
 
 import com.portfolio.portfolio.Entity.Educacion;
+import com.portfolio.portfolio.Security.Controller.Mensaje;
 import com.portfolio.portfolio.Service.SEducacion;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,15 @@ public class CEducacion {
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
+    }
+    
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
+        if(!sEducacion.existsById(id)){
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        }
+        
+        Educacion educacion = sEducacion.getOne(id).get();
+        return new ResponseEntity(educacion, HttpStatus.OK);
     }
 }
