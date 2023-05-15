@@ -11,6 +11,7 @@ Without this configuration present, some functionality in the IDE may be limited
         <word>backendmgb</word>
         <word>jdbc</word>
         <word>localhost</word>
+        <word>mumynzmpy</word>
         <word>mysql</word>
         <word>serverTimezone</word>
         <word>useSSL</word>
