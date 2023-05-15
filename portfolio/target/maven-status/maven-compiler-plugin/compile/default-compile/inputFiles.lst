@@ -24,7 +24,6 @@ D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Security\Dto\NuevoUsuario.java
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Entity\Persona.java
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Security\Service\UserDetailsImpl.java
-D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\WebConfig.java
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Security\Controller\AuthContoller.java
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Repository\IPersonaRepository.java
 D:\PROYECTO PAG WEB\repositorios\back-end\portfolio\src\main\java\com\portfolio\portfolio\Service\Seducacion.java
