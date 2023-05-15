@@ -1,4 +1,3 @@
-
 package com.portfolio.portfolio.Service;
 
 import com.portfolio.portfolio.Entity.Educacion;
@@ -6,11 +5,13 @@ import com.portfolio.portfolio.Repository.REducacion;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class SEducacion {
+public class Seducacion {
+    @Autowired
     REducacion rEducacion;
     
     public List<Educacion> list(){
@@ -21,11 +22,11 @@ public class SEducacion {
         return rEducacion.findById(id);
     }
     
-    public Optional<Educacion> getByNombreE(String nombreE){
+    public Optional<Educacion> getByNmbreE(String nombreE){
         return rEducacion.findByNombreE(nombreE);
     }
     
-      public void save(Educacion educacion){
+    public void save(Educacion educacion){
         rEducacion.save(educacion);
     }
     

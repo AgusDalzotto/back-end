@@ -3,12 +3,13 @@ package com.portfolio.portfolio.Controler;
 import com.portfolio.portfolio.Dto.dtoEducacion;
 import com.portfolio.portfolio.Entity.Educacion;
 import com.portfolio.portfolio.Security.Controller.Mensaje;
-import com.portfolio.portfolio.Service.SEducacion;
+import com.portfolio.portfolio.Service.Seducacion;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,21 +20,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/educacion")
+@RequestMapping("educacion")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
     @Autowired
-    SEducacion sEducacion;
+    Seducacion sEducacion;
     
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
         if(!sEducacion.existsById(id)){
-            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
         }
         
         Educacion educacion = sEducacion.getOne(id).get();
@@ -46,7 +47,7 @@ public class CEducacion {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
         sEducacion.delete(id);
-        return new ResponseEntity(new Mensaje("La educacion ha sido eliminada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
     }
     
     @PostMapping("/create")
@@ -62,7 +63,8 @@ public class CEducacion {
                 dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE()
             );
         sEducacion.save(educacion);
-        return new ResponseEntity(new Mensaje("La educacion ha sido creada"), HttpStatus.OK);         
+        return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
+                
     }
     
     @PutMapping("/update/{id}")
@@ -70,11 +72,11 @@ public class CEducacion {
         if(!sEducacion.existsById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNombreE(dtoeducacion.getNombreE()).get().getId() != id){
-            return new ResponseEntity(new Mensaje("El nombre ya existe"), HttpStatus.BAD_REQUEST);
+        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNmbreE(dtoeducacion.getNombreE()).get().getId() != id){
+            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         if(StringUtils.isBlank(dtoeducacion.getNombreE())){
-            return new ResponseEntity(new Mensaje("Este campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
         
         Educacion educacion = sEducacion.getOne(id).get();
@@ -84,7 +86,6 @@ public class CEducacion {
         
         sEducacion.save(educacion);
         
-        return new ResponseEntity(new Mensaje("La educacion ha sido actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Educacion actualizada"), HttpStatus.OK);
     }
 }
-
