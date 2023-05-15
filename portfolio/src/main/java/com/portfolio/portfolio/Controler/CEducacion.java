@@ -4,10 +4,7 @@
  */
 package com.portfolio.portfolio.Controler;
 
-/**
- *
- * @author Agus
- */
+
 public class CEducacion {
     
 }

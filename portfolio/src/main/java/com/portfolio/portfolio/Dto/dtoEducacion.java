@@ -8,7 +8,9 @@ public class dtoEducacion {
     private String nombreE;
     @NotBlank
     private String descripcionE;
-
+    
+    //constructores
+    
     public dtoEducacion() {
     }
 
@@ -16,7 +18,9 @@ public class dtoEducacion {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }
-
+    
+    //getters y setters
+    
     public String getNombreE() {
         return nombreE;
     }

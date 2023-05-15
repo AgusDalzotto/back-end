@@ -13,10 +13,15 @@ public class Educacion {
     private int id;
     private String nombreE;
     private String descripcionE;
-
+    
+    //constructores
+    
     public Educacion() {
     }
-
+    
+     //getters y setters
+    
+    
     public Educacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;

@@ -11,7 +11,9 @@ public class dtoPersona {
     private String descripcion;
     @NotBlank
     private String img;
-
+    
+    //constructores
+    
     public dtoPersona() {
     }
 
@@ -21,7 +23,10 @@ public class dtoPersona {
         this.descripcion = descripcion;
         this.img = img;
     }
-
+    
+    
+     //getters y setters
+    
     public String getNombre() {
         return nombre;
     }
@@ -52,7 +57,5 @@ public class dtoPersona {
 
     public void setImg(String img) {
         this.img = img;
-    }
-    
-    
+    }  
 }
