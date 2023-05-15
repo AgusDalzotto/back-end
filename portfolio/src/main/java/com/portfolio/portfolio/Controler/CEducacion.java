@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,4 +64,27 @@ public class CEducacion {
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("La educacion ha sido creada"), HttpStatus.OK);         
     }
+    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion){
+        if(!sEducacion.existsById(id)){
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
+        }
+        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNombreE(dtoeducacion.getNombreE()).get().getId() != id){
+            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank(dtoeducacion.getNombreE())){
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
+        
+        Educacion educacion = sEducacion.getOne(id).get();
+        
+        educacion.setNombreE(dtoeducacion.getNombreE());
+        educacion.setDescripcionE(dtoeducacion.getDescripcionE());
+        
+        sEducacion.save(educacion);
+        
+        return new ResponseEntity(new Mensaje("La educacion ha sido actualizada"), HttpStatus.OK);
+    }
 }
+
