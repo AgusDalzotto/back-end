@@ -17,6 +17,7 @@ com\portfolio\portfolio\Security\Enums\RolNombre.class
 com\portfolio\portfolio\Repository\RExperiencia.class
 com\portfolio\portfolio\PortfolioApplication.class
 com\portfolio\portfolio\Security\Dto\JwtDto.class
+com\portfolio\portfolio\WebConfig.class
 com\portfolio\portfolio\Controler\CEducacion.class
 com\portfolio\portfolio\Security\Entity\Rol.class
 com\portfolio\portfolio\Security\Entity\UsuarioPrincipal.class
