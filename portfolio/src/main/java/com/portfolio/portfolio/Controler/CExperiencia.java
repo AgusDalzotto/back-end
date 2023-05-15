@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.portfolio.portfolio.Controler;
 
+import com.portfolio.portfolio.Dto.dtoExperiencia;
 import com.portfolio.portfolio.Entity.Experiencia;
 import com.portfolio.portfolio.Security.Controller.Mensaje;
-import com.portfolio.portfolio.Security.Dto.dtoExperiencia;
 import com.portfolio.portfolio.Service.SExperiencia;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;

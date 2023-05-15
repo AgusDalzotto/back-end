@@ -1,8 +1,8 @@
 
 package com.portfolio.portfolio.Service;
 
-import com.portfolio.portfolio.Security.Entity.Educacion;
-import com.portfolio.portfolio.Security.Repository.REducacion;
+import com.portfolio.portfolio.Entity.Educacion;
+import com.portfolio.portfolio.Repository.REducacion;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
