@@ -69,7 +69,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje ("La experiencia ha sido actualizada"), HttpStatus.OK);
     }
     
-    public ResponseEntity<?> delete(@PathVariable("id") int id){
+    public ResponseEntity<?>delete(@PathVariable("id") int id){
         //validacion de existencia del id
         if (!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje ("El ID no existe"), HttpStatus.BAD_REQUEST);
