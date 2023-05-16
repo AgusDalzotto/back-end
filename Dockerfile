@@ -1,4 +1,4 @@
-FROM amazoncorretto:17
+FROM amazoncorretto:17-alpine-jkd
 MAINTAINER Portfolio
 COPY target/portfolio-0.0.1-SNAPSHOT.jar Portfolio-app.jar
 ENTRYPOINT ["java","-jar","/Portfolio-app.jar"]
