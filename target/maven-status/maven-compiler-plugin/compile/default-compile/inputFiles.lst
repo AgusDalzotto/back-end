@@ -35,6 +35,7 @@ D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Security\Entity\UsuarioPrincipal.java
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Security\Repository\iUsuarioRepository.java
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Security\Dto\NuevoUsuario.java
+D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\WebConfig.java
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Controler\PersonaController.java
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Repository\Rhys.java
 D:\PROYECTO PAG WEB\repositorios\back-end\src\main\java\com\portfolio\portfolio\Security\jwt\JwtEntryPoint.java
