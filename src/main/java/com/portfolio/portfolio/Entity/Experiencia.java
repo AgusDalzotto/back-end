@@ -23,7 +23,6 @@ public class Experiencia {
         this.descripcionE = descripcionE;
     }
     
-    
     //getters y setters
 
     public int getId() {
@@ -48,5 +47,5 @@ public class Experiencia {
 
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
-    }   
+    }
 }
