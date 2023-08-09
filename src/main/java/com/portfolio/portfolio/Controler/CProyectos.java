@@ -41,11 +41,11 @@ public class CProyectos {
     public ResponseEntity<?> create(@RequestBody dtoProyectos dtoproye){
         if (StringUtils.isBlank(dtoproye.getNombreE()))
             return new ResponseEntity(new Mensaje ("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (sProyectos.existsByNombre(dtoproye.getNombreE()))
-            return new ResponseEntity(new Mensaje ("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        if (sProyectos.existsByNombreE(dtoproye.getNombreE()))
+            return new ResponseEntity(new Mensaje ("Ese proyecto ya existe"), HttpStatus.BAD_REQUEST);
         
-        Experiencia experiencia = new  Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
-        sExperiencia.save(experiencia);
+        Proyectos proyectos = new  Experiencia(dtoproye.getNombreE(), dtoproye.getDescripcionE());
+        sProyectos.save(proyectos);
         
         return new ResponseEntity(new Mensaje("La experiencia ha sido agregada"), HttpStatus.OK);
     }

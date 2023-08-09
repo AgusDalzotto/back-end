@@ -13,6 +13,15 @@ public class dtoProyectos {
     private String img;
 
     //Constructores
+
+    public dtoProyectos() {
+    }
+
+    public dtoProyectos(String nombreE, String descripcionE, String img) {
+        this.nombreE = nombreE;
+        this.descripcionE = descripcionE;
+        this.img = img;
+    }
     
     //getters y setters
 
