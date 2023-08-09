@@ -1,9 +1,7 @@
 
 package com.portfolio.portfolio.Service;
 
-import com.portfolio.portfolio.Entity.Experiencia;
 import com.portfolio.portfolio.Entity.Proyectos;
-import com.portfolio.portfolio.Repository.RExperiencia;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -16,28 +14,33 @@ import com.portfolio.portfolio.Repository.RProyect;
 @Transactional
 public class SProyectos {
     @Autowired
-    RProyect rProyectos;
+    RProyect rProyect;
     
     public List<Proyectos> list(){
-        return rProyectos.findAll();
+        return rProyect.findAll();
     }
     
     public Optional<Proyectos> getOne(int id){
-        return rProyectos.findById(id);
+        return rProyect.findById(id);
     }
     
     public Optional<Proyectos> getByNombreE(String nombreE){
-        return rProyectos.findByNombreE(nombreE);
+        return rProyect.findByNombreE(nombreE);
     }
     
     public void save(Proyectos proye){
-        rProyectos.save(proye);
+        rProyect.save(proye);
     }
     
     public void delete(int id){
-        rProyectos.deleteById(id);
+        rProyect.deleteById(id);
     }
     
     public boolean existsById(int id){
-        return rProyectos.existsById(id);
+        return rProyect.existsById(id);
     }
+    
+    public boolean existsByNombreE(String nombreE){
+        return rProyect.existsByNombreE(nombreE);
+    }
+}

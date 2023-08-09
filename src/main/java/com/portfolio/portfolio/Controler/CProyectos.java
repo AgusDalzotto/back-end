@@ -2,7 +2,9 @@
 package com.portfolio.portfolio.Controler;
 
 import com.portfolio.portfolio.Dto.dtoExperiencia;
+import com.portfolio.portfolio.Dto.dtoProyectos;
 import com.portfolio.portfolio.Entity.Experiencia;
+import com.portfolio.portfolio.Entity.Proyectos;
 import com.portfolio.portfolio.Security.Controller.Mensaje;
 import com.portfolio.portfolio.Service.SExperiencia;
 import com.portfolio.portfolio.Service.SProyectos;
@@ -31,15 +33,15 @@ public class CProyectos {
     
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> lis(){
-        List<Experiencia> list = sExperiencia.list();
+        List<Proyectos> list = sProyectos.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){
-        if (StringUtils.isBlank(dtoexp.getNombreE()))
+    public ResponseEntity<?> create(@RequestBody dtoProyectos dtoproye){
+        if (StringUtils.isBlank(dtoproye.getNombreE()))
             return new ResponseEntity(new Mensaje ("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if (sExperiencia.existsByNombreE(dtoexp.getNombreE()))
+        if (sProyectos.existsByNombre(dtoproye.getNombreE()))
             return new ResponseEntity(new Mensaje ("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
         
         Experiencia experiencia = new  Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
