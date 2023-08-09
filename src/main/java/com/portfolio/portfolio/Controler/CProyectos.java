@@ -6,7 +6,6 @@ import com.portfolio.portfolio.Dto.dtoProyectos;
 import com.portfolio.portfolio.Entity.Experiencia;
 import com.portfolio.portfolio.Entity.Proyectos;
 import com.portfolio.portfolio.Security.Controller.Mensaje;
-import com.portfolio.portfolio.Service.SExperiencia;
 import com.portfolio.portfolio.Service.SProyectos;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;
@@ -25,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/explab")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/proyects")
+@CrossOrigin(origins = "https://frontendarg-1de98.web.app")
 public class CProyectos {
     @Autowired
     SProyectos sProyectos;
